@@ -3,17 +3,13 @@
 # Initial Provider Configuration for Proxmox
 
 terraform {
-
-    required_version = ">= 0.13.0"
-
-    required_providers {
-        proxmox = {
-            source = "telmate/proxmox"
-            version = ">= 2.9.14"
-        }
+  required_providers {
+    proxmox = {
+      source  = "telmate/proxmox"
+      version = "3.0.1-rc2"
     }
+  }
 }
-
 variable "proxmox_api_url" {
     type = string
 }
@@ -33,6 +29,6 @@ provider "proxmox" {
     pm_api_token_secret = var.proxmox_api_token_secret
 
     # (Optional) Skip TLS Verification
-    # pm_tls_insecure = true
+    pm_tls_insecure = true
 
 }
